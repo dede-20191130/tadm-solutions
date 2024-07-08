@@ -1,0 +1,43 @@
+#include <cassert>
+#include <iostream>
+#include <string>
+
+constexpr char PAREN_OPEN{'('};
+constexpr char PAREN_CLOSE{')'};
+
+int get_longest_balanced(std::string_view target) {
+    // loop to examine whole charactors
+    //  if process encounteres '(', count up the counter of '('
+    //  if counter of '(' > 0 and process encounteres ')',
+    //      count down the counter of '(' and score+=2
+
+    int score{0};
+    int parens_open_cnt{0};
+    for (const auto c : target) {
+        if (c == PAREN_OPEN) ++parens_open_cnt;
+        if (parens_open_cnt > 0 && c == PAREN_CLOSE) {
+            score += 2;
+            --parens_open_cnt;
+        }
+    }
+
+    return score;
+}
+
+int main(int argc, char const* argv[]) {
+    std::string s{"()"};
+    assert(get_longest_balanced(s) == 2);
+    s = "(a)b(c)";
+    assert(get_longest_balanced(s) == 4);
+    s = "((())())()";
+    assert(get_longest_balanced(s) == 10);
+    s = ")()( ";
+    assert(get_longest_balanced(s) == 2);
+    s = "())";
+    assert(get_longest_balanced(s) == 2);
+    s = "std::size_t sz{target.size()};";
+    assert(get_longest_balanced(s) == 2);
+    s = " )()(())()()))())))(";
+    assert(get_longest_balanced(s) == 12);
+    return 0;
+}
