@@ -1,0 +1,63 @@
+#include <cassert>
+#include <concepts>
+#include <iostream>
+#include <set>
+#include <stdexcept>
+#include <vector>
+
+template <std::totally_ordered T>
+bool check_k_unique(const std::vector<T>& v, size_t k) {
+    if (v.size() <= k) throw std::invalid_argument("invalid k");
+
+    // first, set a new binary tree
+
+    // second, insert a element of v into the tree one by one
+    //  target elements are in the range of index[0, k]
+    //  if the tree already has the incomming value, return false
+    //  time complexity: O(klogk)
+
+    // third, for each the rest of elemens in the range of index[k+1,n),
+    //  (lets say the index of the element is i)
+    //  remove the value of the element v[i-k-1] and
+    //  insert the i's element into the tree
+    //  if the tree already has the incomming value, return false
+    //  time complexity: O((n-k)logk)
+
+    // total time complexity: O(nlogk)
+
+    std::set<T> tree{};
+    for (size_t i{0}; i <= k; i++) {
+        const auto [it, is_inserted]{tree.insert(v[i])};
+        if (!is_inserted) return false;
+    }
+
+    for (size_t i{k + 1}; i < v.size(); i++) {
+        tree.erase(v[i - k - 1]);
+        const auto [it, is_inserted]{tree.insert(v[i])};
+        if (!is_inserted) return false;
+    }
+
+    return true;
+}
+
+int main(int argc, char const* argv[]) {
+    assert(!check_k_unique<int>({1, 1}, 1));
+    assert(check_k_unique<int>({1, 2}, 1));
+    assert(check_k_unique<int>({1, 2, 1}, 1));
+    assert(!check_k_unique<int>({1, 2, 1}, 2));
+
+    std::vector<int> v{4, 1, 2, 6, 5, 3, 4, 1, 2, 6, 5, 3};
+    assert(check_k_unique(v, 1));
+    assert(check_k_unique(v, 2));
+    assert(check_k_unique(v, 3));
+    assert(check_k_unique(v, 4));
+    assert(check_k_unique(v, 5));
+    assert(!check_k_unique(v, 6));
+    assert(!check_k_unique(v, 7));
+    assert(!check_k_unique(v, 8));
+    assert(!check_k_unique(v, 9));
+    assert(!check_k_unique(v, 10));
+    assert(!check_k_unique(v, 11));
+
+    return 0;
+}
