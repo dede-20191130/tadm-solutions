@@ -1,0 +1,80 @@
+#include <cassert>
+#include <concepts>
+#include <memory>
+#include <stdexcept>
+#include <vector>
+
+template <std::equality_comparable T>
+struct node {
+    T item;
+    std::shared_ptr<node> next;
+};
+
+template <std::equality_comparable T>
+class Singly_linked_list {
+    using mnode = node<T>;
+
+   private:
+    std::shared_ptr<mnode> head;
+    size_t m_size;
+
+   public:
+    Singly_linked_list() = default;
+    Singly_linked_list(std::initializer_list<T> list) : m_size{list.size()} {
+        if (!m_size) return;
+        auto p_l{std::cbegin(list)};
+        head = std::make_shared<mnode>(*p_l++);
+        auto prev{head};
+        for (; p_l != std::cend(list); p_l++) {
+            auto p_node = std::make_shared<mnode>(*p_l);
+            prev->next = p_node;
+            prev = p_node;
+        }
+    }
+    ~Singly_linked_list() {};
+    Singly_linked_list& operator=(const Singly_linked_list&) = delete;
+
+    size_t size() { return m_size; }
+
+    void insert(T val) {
+        head = std::make_shared<mnode>(val, head);
+        ++m_size;
+    }
+
+    // time:ʘ(n), space:ʘ(1), requiring tracing its size
+    std::shared_ptr<mnode> get_middle_using_tracing_size() {
+        std::shared_ptr<mnode> p_node{head};
+        size_t cnt{0};
+        size_t i_middle{(m_size - 1) / 2};
+        while (p_node) {
+            if (cnt++ == i_middle) return p_node;
+            p_node = p_node->next;
+        }
+        throw std::logic_error("size error");
+    }
+    // time:ʘ(n), space:ʘ(n)
+    std::shared_ptr<mnode> get_middle_without_using_size() {
+        std::shared_ptr<mnode> p_node{head};
+        size_t cnt{0};
+        std::vector<std::shared_ptr<mnode>> p_store;
+        while (p_node) {
+            cnt++;
+            p_store.push_back(p_node);
+            p_node = p_node->next;
+        }
+        return p_store[(cnt - 1) / 2];
+    }
+};
+
+int main(int argc, char const* argv[]) {
+    Singly_linked_list sll{3, 6, 33, 4, 23, 8, 2};
+    assert(sll.get_middle_using_tracing_size()->item == 4);
+    assert(sll.get_middle_without_using_size()->item == 4);
+    sll.insert(12);
+    assert(sll.get_middle_using_tracing_size()->item == 33);
+    assert(sll.get_middle_without_using_size()->item == 33);
+    sll.insert(13);
+    assert(sll.get_middle_using_tracing_size()->item == 33);
+    assert(sll.get_middle_without_using_size()->item == 33);
+    return 0;
+}
