@@ -1,0 +1,80 @@
+/*
+Construct priority queue in the forms of heap.
+Then take first k element, with restructing heap on each extraction.
+
+Since fast-make-heap algorithm takes O(n) time complexity and
+bubble-down algorithm takes O(logn),
+The total time complexity is O(n + k*logn).
+*/
+
+#include <algorithm>
+#include <cassert>
+#include <stdexcept>
+#include <vector>
+size_t pq_young_child(const size_t i) { return i * 2; }
+size_t pq_top() { return 1; }
+size_t pq_len(const size_t x) { return x - 1; }
+void pq_swap(std::vector<int>& q, const size_t i1, const size_t i2) {
+    auto t{q[i1]};
+    q[i1] = q[i2];
+    q[i2] = t;
+}
+void bubble_down(std::vector<int>& q, const size_t p) {
+    auto c{pq_young_child(p)};
+    auto min_idx{p};
+    for (size_t i = 0; i < 2; i++) {
+        if (c + i <= pq_len(q.size()) && q[c + i] < q[min_idx]) min_idx = c + i;
+    }
+    if (min_idx == p) return;
+    // swap
+    pq_swap(q, p, min_idx);
+    // recurse
+    bubble_down(q, min_idx);
+}
+std::vector<int> make_heap(const std::vector<int>& v) {
+    std::vector<int> q(v.size() + 1);
+    std::copy(v.cbegin(), v.cend(), q.begin() + 1);
+
+    for (size_t i = pq_len(q.size()) / 2; i >= 1; i--) {
+        bubble_down(q, i);
+    }
+    return q;
+}
+
+int examine_min(std::vector<int>& q) {
+    if (pq_len(q.size()) <= 0) throw std::invalid_argument{"Empty queue"};
+    auto v_min{q[pq_top()]};
+    q[pq_top()] = q[pq_len(q.size())];
+    q.resize(q.size() - 1);
+    bubble_down(q, pq_top());
+    return v_min;
+}
+
+std::vector<int> find_k_smallest(const std::vector<int>& v, const int k) {
+    auto q{make_heap(v)};
+    std::vector<int> result;
+    for (auto i{0}; i < k; ++i) {
+        result.push_back(examine_min(q));
+    }
+    return result;
+}
+
+int main(int argc, char const* argv[]) {
+    assert(find_k_smallest({1}, 1) == (std::vector<int>{1}));
+    assert(find_k_smallest({2, 1}, 1) == (std::vector<int>{1}));
+    assert(find_k_smallest({2, 1}, 2) == (std::vector<int>{1, 2}));
+
+    assert(find_k_smallest({-3, 2, 12, -1, 10, 5}, 1) ==
+           (std::vector<int>{-3}));
+    assert(find_k_smallest({-3, 2, 12, -1, 10, 5}, 2) ==
+           (std::vector<int>{-3, -1}));
+    assert(find_k_smallest({-3, 2, 12, -1, 10, 5}, 3) ==
+           (std::vector<int>{-3, -1, 2}));
+    assert(find_k_smallest({-3, 2, 12, -1, 10, 5}, 4) ==
+           (std::vector<int>{-3, -1, 2, 5}));
+    assert(find_k_smallest({-3, 2, 12, -1, 10, 5}, 5) ==
+           (std::vector<int>{-3, -1, 2, 5, 10}));
+    assert(find_k_smallest({-3, 2, 12, -1, 10, 5}, 6) ==
+           (std::vector<int>{-3, -1, 2, 5, 10, 12}));
+    return 0;
+}
