@@ -1,0 +1,37 @@
+graph G {
+    splines = "FALSE";
+    
+    node [shape = circle;];
+    /**
+     * Entities
+     */
+    a [label = "1";xlabel = "The largest";];
+    subgraph cluster_lvl2 {
+        label = "";
+        color = orange;
+        style = "dashed";
+        node [fillcolor = "#fce6ac"; style = filled;];
+        b [label = "2";];
+        c [label = "3";];
+    }
+    d [label = "4";];
+    e [label = "5";];
+    f [label = "6";];
+    g [label = "7";];
+    h [label = "8";];
+    i [label = "9";];
+    j [shape = plaintext;label = "......";];
+    
+    /**
+     * Relationships
+     */
+    a -- b;
+    a -- c;
+    b -- d;
+    b -- e;
+    c -- f;
+    c -- g;
+    d -- h;
+    d -- i;
+    e -- j [style = invis;];
+}

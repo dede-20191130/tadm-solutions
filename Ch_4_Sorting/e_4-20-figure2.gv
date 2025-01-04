@@ -1,0 +1,35 @@
+graph G {
+    splines = "FALSE";
+    
+    node [shape = circle;];
+    /**
+     * Entities
+     */
+    a [label = <e<SUB>0</SUB>>;];
+    b [label = <e<SUB>1</SUB>>;];
+    subgraph cluster_e2 {
+        label = "";
+        color = orange;
+        style = "dashed";
+        node [fillcolor = "#fce6ac"; style = filled;];
+        c [label = <e<SUB>2</SUB>>;];
+    }
+    subgraph cluster_lvl3 {
+        label = "";
+        color = "#99ff25ff";
+        style = "dashed";
+        node [fillcolor = "#d0fa9fff"; style = filled;];
+        d [label = <e<SUB>3</SUB>>;];
+        e [label = <e<SUB>4</SUB>>;];
+    }
+    j [shape = plaintext;label = "......";];
+    
+    /**
+     * Relationships
+     */
+    a -- b;
+    a -- c;
+    b -- d;
+    b -- e;
+    c -- j [style = invis;];
+}
