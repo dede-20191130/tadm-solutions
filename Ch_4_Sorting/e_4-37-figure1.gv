@@ -1,0 +1,46 @@
+digraph G {
+    splines = "FALSE";
+    rankdir = "LR";
+    subgraph {
+        case1_n [label = "E";];
+        case1_n_1 [label = "N";];
+        case1_n_2_e [label = "E";];
+        case1_n_2_n [label = "N";];
+        case1_n -> case1_n_1 [label = "1";];
+        case1_n_1 -> case1_n_2_e [label = "1/2";];
+        case1_n_1 -> case1_n_2_n [label = "1/2";];
+    }
+    subgraph {
+        case2_n [label = "N";];
+        case2_n_1_e [label = "E";];
+        case2_n_1_n [label = "N";];
+        case2_n_2_n1 [label = "N";];
+        case2_n_2_e [label = "E";];
+        case2_n_2_n2 [label = "N";];
+        case2_n -> case2_n_1_e [label = "1/2";];
+        case2_n_1_e -> case2_n_2_n1 [label = "1";];
+        case2_n -> case2_n_1_n [label = "1/2";];
+        case2_n_1_n -> case2_n_2_e [label = "1/2";];
+        case2_n_1_n -> case2_n_2_n2 [label = "1/2";];
+    }
+    
+    subgraph {
+        rank = same;
+        case1_n;
+        case2_n;
+    }
+    subgraph {
+        rank = same;
+        case1_n_1;
+        case2_n_1_e;
+        case2_n_1_n;
+    }
+    subgraph {
+        rank = same;
+        case1_n_2_e;
+        case1_n_2_n;
+        case2_n_2_n1;
+        case2_n_2_e;
+        case2_n_2_n2;
+    }
+}

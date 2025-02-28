@@ -1,0 +1,123 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="278pt" height="260pt" viewBox="0.00 0.00 277.78 260.00">
+<g id="graph0" class="graph" transform="translate(-0.35391444786509396,260.6888331939949) scale(1)" data-name="G">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-256 273.78,-256 273.78,4 -4,4"/>
+<!-- case1_n -->
+<g id="node1" class="node" pointer-events="visible" data-name="case1_n">
+
+<ellipse fill="none" stroke="black" cx="27" cy="-45" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-40.8" font-family="Times,serif" font-size="14.00">E</text>
+</g>
+<!-- case1_n_1 -->
+<g id="node2" class="node" pointer-events="visible" data-name="case1_n_1">
+
+<ellipse fill="none" stroke="black" cx="134.89" cy="-45" rx="27" ry="18"/>
+<text text-anchor="middle" x="134.89" y="-40.8" font-family="Times,serif" font-size="14.00">N</text>
+</g>
+<!-- case1_n&#45;&gt;case1_n_1 -->
+<g id="edge1" class="edge" data-name="case1_n-&gt;case1_n_1">
+
+<path fill="none" stroke="black" d="M54.45,-45C67.08,-45 82.43,-45 96.25,-45"/>
+<polygon fill="black" stroke="black" points="95.9,-48.5 105.9,-45 95.9,-41.5 95.9,-48.5"/>
+<text text-anchor="middle" x="80.94" y="-49.2" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- case1_n_2_e -->
+<g id="node3" class="node" pointer-events="visible" data-name="case1_n_2_e">
+
+<ellipse fill="none" stroke="black" cx="242.78" cy="-72" rx="27" ry="18"/>
+<text text-anchor="middle" x="242.78" y="-67.8" font-family="Times,serif" font-size="14.00">E</text>
+</g>
+<!-- case1_n_1&#45;&gt;case1_n_2_e -->
+<g id="edge2" class="edge" data-name="case1_n_1-&gt;case1_n_2_e">
+
+<path fill="none" stroke="black" d="M160.72,-51.33C174.26,-54.78 191.26,-59.12 206.19,-62.92"/>
+<polygon fill="black" stroke="black" points="205.09,-66.26 215.64,-65.34 206.82,-59.47 205.09,-66.26"/>
+<text text-anchor="middle" x="188.83" y="-65.2" font-family="Times,serif" font-size="14.00">1/2</text>
+</g>
+<!-- case1_n_2_n -->
+<g id="node4" class="node" pointer-events="visible" data-name="case1_n_2_n">
+
+<ellipse fill="none" stroke="black" cx="242.78" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="242.78" y="-13.8" font-family="Times,serif" font-size="14.00">N</text>
+</g>
+<!-- case1_n_1&#45;&gt;case1_n_2_n -->
+<g id="edge3" class="edge" data-name="case1_n_1-&gt;case1_n_2_n">
+
+<path fill="none" stroke="black" d="M160.72,-38.67C174.26,-35.22 191.26,-30.88 206.19,-27.08"/>
+<polygon fill="black" stroke="black" points="206.82,-30.53 215.64,-24.66 205.09,-23.74 206.82,-30.53"/>
+<text text-anchor="middle" x="188.83" y="-38.2" font-family="Times,serif" font-size="14.00">1/2</text>
+</g>
+<!-- case2_n -->
+<g id="node5" class="node" pointer-events="visible" data-name="case2_n">
+
+<ellipse fill="none" stroke="black" cx="27" cy="-203" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-198.8" font-family="Times,serif" font-size="14.00">N</text>
+</g>
+<!-- case2_n_1_e -->
+<g id="node6" class="node" pointer-events="visible" data-name="case2_n_1_e">
+
+<ellipse fill="none" stroke="black" cx="134.89" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="134.89" y="-229.8" font-family="Times,serif" font-size="14.00">E</text>
+</g>
+<!-- case2_n&#45;&gt;case2_n_1_e -->
+<g id="edge4" class="edge" data-name="case2_n-&gt;case2_n_1_e">
+
+<path fill="none" stroke="black" d="M52.29,-210.11C66.15,-214.17 83.75,-219.32 99.06,-223.8"/>
+<polygon fill="black" stroke="black" points="97.68,-227.05 108.26,-226.5 99.64,-220.33 97.68,-227.05"/>
+<text text-anchor="middle" x="80.94" y="-224.2" font-family="Times,serif" font-size="14.00">1/2</text>
+</g>
+<!-- case2_n_1_n -->
+<g id="node7" class="node" pointer-events="visible" data-name="case2_n_1_n">
+
+<ellipse fill="none" stroke="black" cx="134.89" cy="-180" rx="27" ry="18"/>
+<text text-anchor="middle" x="134.89" y="-175.8" font-family="Times,serif" font-size="14.00">N</text>
+</g>
+<!-- case2_n&#45;&gt;case2_n_1_n -->
+<g id="edge6" class="edge" data-name="case2_n-&gt;case2_n_1_n">
+
+<path fill="none" stroke="black" d="M53.09,-197.55C66.55,-194.63 83.35,-190.98 98.14,-187.76"/>
+<polygon fill="black" stroke="black" points="98.47,-191.28 107.5,-185.73 96.98,-184.44 98.47,-191.28"/>
+<text text-anchor="middle" x="80.94" y="-195.2" font-family="Times,serif" font-size="14.00">1/2</text>
+</g>
+<!-- case2_n_2_n1 -->
+<g id="node8" class="node" pointer-events="visible" data-name="case2_n_2_n1">
+
+<ellipse fill="none" stroke="black" cx="242.78" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="242.78" y="-229.8" font-family="Times,serif" font-size="14.00">N</text>
+</g>
+<!-- case2_n_1_e&#45;&gt;case2_n_2_n1 -->
+<g id="edge5" class="edge" data-name="case2_n_1_e-&gt;case2_n_2_n1">
+
+<path fill="none" stroke="black" d="M162.34,-234C174.97,-234 190.32,-234 204.14,-234"/>
+<polygon fill="black" stroke="black" points="203.79,-237.5 213.79,-234 203.79,-230.5 203.79,-237.5"/>
+<text text-anchor="middle" x="188.83" y="-238.2" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- case2_n_2_e -->
+<g id="node9" class="node" pointer-events="visible" data-name="case2_n_2_e">
+
+<ellipse fill="none" stroke="black" cx="242.78" cy="-180" rx="27" ry="18"/>
+<text text-anchor="middle" x="242.78" y="-175.8" font-family="Times,serif" font-size="14.00">E</text>
+</g>
+<!-- case2_n_1_n&#45;&gt;case2_n_2_e -->
+<g id="edge7" class="edge" data-name="case2_n_1_n-&gt;case2_n_2_e">
+
+<path fill="none" stroke="black" d="M162.34,-180C174.97,-180 190.32,-180 204.14,-180"/>
+<polygon fill="black" stroke="black" points="203.79,-183.5 213.79,-180 203.79,-176.5 203.79,-183.5"/>
+<text text-anchor="middle" x="188.83" y="-184.2" font-family="Times,serif" font-size="14.00">1/2</text>
+</g>
+<!-- case2_n_2_n2 -->
+<g id="node10" class="node" pointer-events="visible" data-name="case2_n_2_n2">
+
+<ellipse fill="none" stroke="black" cx="242.78" cy="-126" rx="27" ry="18"/>
+<text text-anchor="middle" x="242.78" y="-121.8" font-family="Times,serif" font-size="14.00">N</text>
+</g>
+<!-- case2_n_1_n&#45;&gt;case2_n_2_n2 -->
+<g id="edge8" class="edge" data-name="case2_n_1_n-&gt;case2_n_2_n2">
+
+<path fill="none" stroke="black" d="M157.06,-169.2C172.36,-161.4 193.26,-150.74 210.48,-141.96"/>
+<polygon fill="black" stroke="black" points="211.98,-145.13 219.29,-137.47 208.8,-138.89 211.98,-145.13"/>
+<text text-anchor="middle" x="188.83" y="-161.2" font-family="Times,serif" font-size="14.00">1/2</text>
+</g>
+</g>
+</svg>
